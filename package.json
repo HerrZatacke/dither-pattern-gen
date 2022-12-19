@@ -1,0 +1,18 @@
+{
+  "name": "gen-dither",
+  "version": "1.0.0",
+  "description": "Method for generating dither paterns sed by the GameBoy Camera",
+  "main": "index.js",
+  "scripts": {
+    "run": "node src/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "bayer", "dither", "gameboy", "camera", "2bit"
+  ],
+  "author": "Herr Zatacke",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
