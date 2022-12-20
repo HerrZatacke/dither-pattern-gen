@@ -16,4 +16,4 @@ const orderPatternNoDither = [
 module.exports = {
   orderPatternDither,
   orderPatternNoDither,
-}
+};
