@@ -14,6 +14,6 @@ const sortPattern = (pattern) => {
   }
 
   return shades;
-}
+};
 
-module.exports = sortPattern;
+export default sortPattern;

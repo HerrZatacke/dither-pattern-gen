@@ -1,4 +1,4 @@
-const { generateBaseValues } = require('./generateBaseValues');
+import generateBaseValues from './generateBaseValues.mjs';
 
 // Manually created pattern from original ditherLowLightValues[0]
 const valuesAB = [128, 129, 130, 131, 133, 134, 135, 136, 138, 139, 140, 141, 143, 144, 145, 146];

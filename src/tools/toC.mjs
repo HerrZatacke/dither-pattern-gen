@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const toC = (patterns) => {
   patterns.forEach((pattern, index) => {
@@ -13,7 +13,7 @@ const toC = (patterns) => {
       .join(',\n');
 
     fs.writeFileSync(`out/dither_pattern_${index}.c`, `{\n${patternC}\n }`);
-  })
-}
+  });
+};
 
-module.exports = toC;
+export default toC;

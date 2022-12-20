@@ -19,4 +19,4 @@ const generatePattern = ({
   return pattern;
 };
 
-module.exports = generatePattern;
+export default generatePattern;

@@ -4,8 +4,8 @@
   "description": "Method for generating dither paterns sed by the GameBoy Camera",
   "main": "index.js",
   "scripts": {
-    "run": "node src/index.js",
-    "test": "jest"
+    "run": "node src/index.mjs",
+    "test": "jest --config=./jest.config.js"
   },
   "keywords": [
     "bayer", "dither", "gameboy", "camera", "2bit"

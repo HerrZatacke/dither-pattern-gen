@@ -1,12 +1,12 @@
-const patternBases = require('./data/patternBases.js');
-const { orderPatternDither, orderPatternNoDither } = require('./data/orderPatterns.js');
-const generatePattern = require('./generatePattern.js');
-const generateBaseValues = require('./generateBaseValues.js');
-const sortPattern = require('./tools/sortPattern.js');
+import generatePattern from './generatePattern.mjs';
+import generateBaseValues from './generateBaseValues.mjs';
+import patternBases from './data/patternBases.mjs';
+import { orderPatternDither, orderPatternNoDither } from './data/orderPatterns.mjs';
+import sortPattern from './tools/sortPattern.mjs';
 
-const toPGM = require('./tools/toPGM.js');
-const toJSONFile = require('./tools/toJSONFile.js');
-const toC = require('./tools/toC.js');
+import toPGM from './tools/toPGM.mjs';
+import toJSONFile from './tools/toJSONFile.mjs';
+import toC from './tools/toC.mjs';
 
 const patterns = Object.keys(patternBases)
   .map((patternGroupName) => (

@@ -1,13 +1,13 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const toPGMLine = (line) => {
-  const lineText = (new Array(512)).fill('1')
+  const lineText = (new Array(512)).fill('1');
 
   line.forEach((shade, color) => {
     shade.forEach((value) => {
       lineText[value] = (color * 2) + 3;
-    })
-  })
+    });
+  });
 
   return lineText.join(' ');
 };
@@ -20,4 +20,4 @@ const toPGM = (patterns) => {
   fs.writeFileSync('out/distribution.pgm', `${pgmHead}\n${pgmData}`, { encoding: 'utf-8' });
 };
 
-module.exports = toPGM;
+export default toPGM;

@@ -181,4 +181,4 @@ const patternBases = {
   ],
 };
 
-module.exports = patternBases;
+export default patternBases;
