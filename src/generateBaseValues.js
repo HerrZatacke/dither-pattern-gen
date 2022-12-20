@@ -3,16 +3,14 @@ const generateValueRange = (start, end) => {
   return (new Array(16))
     .fill(null)
     .map((_, index) => (
-      Math.floor(start + step * index)
+      Math.floor(start + (step * index))
     ));
-}
-
-const generateBaseValues = ([a, b, c, d]) => {
-  return [
-    generateValueRange(a, b),
-    generateValueRange(b, c),
-    generateValueRange(c, d),
-  ]
 };
+
+const generateBaseValues = ([a, b, c, d]) => ([
+  generateValueRange(a, b),
+  generateValueRange(b, c),
+  generateValueRange(c, d),
+]);
 
 module.exports = generateBaseValues;
