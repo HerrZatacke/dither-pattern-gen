@@ -1,0 +1,17 @@
+@import '~reset-css/sass/reset';
+
+body {
+  @include fontFamily;
+
+  background: $color-white;
+  color: $color-black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+pre {
+  font-family: monospace;
+  padding: 2px;
+}

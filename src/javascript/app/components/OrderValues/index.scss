@@ -1,0 +1,16 @@
+.order-values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 340px;
+
+  &__value {
+    width: 78px;
+    height: 40px;
+    font-size: 20px;
+    font-family: monospace;
+    text-align: right;
+    padding: 0;
+    margin: 4px 0;
+  }
+}
