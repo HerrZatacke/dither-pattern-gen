@@ -1,9 +1,9 @@
-const generateValueRange = (from, to) => {
-  const step = (to - from) / 16;
+const generateValueRange = (start, end) => {
+  const step = (end - start) / 16;
   return (new Array(16))
     .fill(null)
     .map((_, index) => (
-      Math.floor(from + step * index)
+      Math.floor(start + step * index)
     ));
 }
 
