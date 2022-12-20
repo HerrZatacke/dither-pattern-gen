@@ -1,4 +1,3 @@
-// const patterns = require('../reference/patterns.js');
 const patternBases = require('./data/patternBases.js');
 const { orderPatternDither, orderPatternNoDither } = require('./data/orderPatterns.js');
 const generatePattern = require('./generatePattern.js');
