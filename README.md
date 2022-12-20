@@ -39,7 +39,7 @@ const z1 = [148, 152, 157, 161, 166, 170, 175, 179, 184, 188, 193, 197, 202, 206
 const z2 = [220, 222, 224, 226, 228, 230, 233, 235, 237, 239, 241, 244, 246, 248, 250, 252]; // 220 to 252
 ```
 
-These three sequences can be plotted like this:  
+These three sequences can be plotted like this (click to enlarge):  
 [![Plotted pattern](doc/single_pattern.png)](doc/single_pattern.png)
 
 This can be done with all four groups:
