@@ -62,4 +62,4 @@ The [ordering matrix](src/data/orderPatterns.js) to create the paterns are used 
 
 ## Thanks
 * [github.com/hatchman](https://github.com/hatchman) for giving me the idea to sort the values to spot a pattern
-* The [GameBoy Camera Clup Discord](https://discord.gg/C7WFJHG) for a lot of inspiration and countless ideas
+* The [GameBoy Camera Club Discord](https://discord.gg/C7WFJHG) for a lot of inspiration and countless ideas
