@@ -1,5 +1,6 @@
 # Dither pattern generator and documentation
 
+## Purpose
 The GameBoy Camera uses various dither patterns to convert analog greyscale images received by it's sensor to 2-bit greyscale images which is the common image format across gameboys.  
 This repository aims to explain how the original patterns have been created and also provides tools to create alternative patterns.  
 The generation of new patterns is meant to be done programmatically via parameters defining a pattern
@@ -58,3 +59,7 @@ Through using the first value of each pattern's sequences and manually trying fo
 Having linear sequences does not create an aesthetically pleasing image. So each of the three sequences (z-dimension) are arranged into a [Bayer matrix threshold map](https://en.wikipedia.org/wiki/Ordered_dithering).  
 The two non-dithering sets are only using the first value of the sequences.  
 The [ordering matrix](src/data/orderPatterns.js) to create the paterns are used by [the `generatePattern` function](src/generatePattern.js) which re-assembles and finalizes the usable dithering pattern. 
+
+## Thanks
+* [github.com/hatchman](https://github.com/hatchman) for giving me the idea to sort the values to spot a pattern
+* The [GameBoy Camera Clup Discord](https://discord.gg/C7WFJHG) for a lot of inspiration and countless ideas
