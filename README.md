@@ -48,7 +48,7 @@ This can be done with all four groups:
 This process visualizes that each of the three sequences of each pattern is a linear distribution of the 16 values.  
 The slight deviations are due to the values being _rounded down_ to a full integer.
 
-The first six patterns of the `ditherLowLightValues` group have the last group cut off at exactly 255. The slight "gap" to the end originates from the calculation of the linear distibution where the step size is calculated for 16 steps _ongoing from _ the first value. _This approach will be used here to exactly reproduce the values of the original patterns._
+The first six patterns of the `ditherLowLightValues` group have the last group cut off at exactly 255. The slight "gap" to the end originates from the calculation of the linear distibution where the step size is calculated for 16 steps _ongoing from_ the first value. _This approach will be used here to exactly reproduce the values of the original patterns._
 The [`generateValueRange` function](src/generateBaseValues.js) for creating each sequence uses this approach.  
 
 Through using the first value of each pattern's sequences and manually trying for the last value, the [required boundaries for all four original patterns](src/data/patternBases.js) could be determined (this file also contains additional custom sequences). 
