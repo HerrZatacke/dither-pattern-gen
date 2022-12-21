@@ -3,6 +3,7 @@ import './index.scss';
 import FileInput from '../FileInput';
 import ImagePreview from '../ImagePreview';
 import PatternMaker from '../PatternMaker';
+import Tabs from '../Tabs';
 import { patternToC } from '../../../../tools/toC.mjs';
 
 function App() {
@@ -28,16 +29,34 @@ function App() {
       <FileInput
         onImageDataChange={setSourceImageData}
       />
-      <ImagePreview
-        imageData={sourceImageData}
-        pattern={pattern}
-      />
-      <PatternMaker
-        onPatternUpdate={setPattern}
-      />
-      <code className="app__c-pattern">
-        { patternToC(pattern) }
-      </code>
+      <Tabs
+        labels={[
+          {
+            label: 'Single Pattern',
+            key: 'single',
+          },
+          {
+            label: 'Pattern Group',
+            key: 'group',
+          },
+        ]}
+      >
+        <div key="single">
+          <ImagePreview
+            imageData={sourceImageData}
+            pattern={pattern}
+          />
+          <PatternMaker
+            onPatternUpdate={setPattern}
+          />
+          <code className="app__c-pattern">
+            { patternToC(pattern) }
+          </code>
+        </div>
+        <div key="group">
+          <p>To be implemented...</p>
+        </div>
+      </Tabs>
     </div>
   );
 }

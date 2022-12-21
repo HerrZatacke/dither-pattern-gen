@@ -1,0 +1,27 @@
+.tabs {
+  width: 340px;
+
+  &__buttons {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__button {
+    display: block;
+    background-color: #ddeeff;
+    border: 1px solid black;
+    text-align: left;
+    flex: 1 1 auto;
+    padding: 10px;
+    cursor: pointer;
+
+    &--active {
+      background: #000;
+      color: #ddeeff;
+    }
+  }
+
+  &__tabs-content {
+    margin-top: 20px;
+  }
+}
