@@ -5,6 +5,7 @@ import './index.scss';
 function OrderValues({
   orderPattern,
   onOrderPatternUpdate,
+  disabled,
 }) {
   return (
     <div className="order-values">
@@ -12,11 +13,12 @@ function OrderValues({
         orderPattern.map((value, index) => (
           <input
             key={index}
-            className="order-values__value"
+            className={`order-values__value order-values__value--${disabled ? 'disabled' : 'enabled'}`}
             type="number"
             min={0}
             max={15}
             value={value}
+            disabled={disabled}
             onChange={({ target }) => {
               const newOrderPattern = [...orderPattern];
               newOrderPattern[index] = parseInt(target.value, 10);
@@ -32,9 +34,11 @@ function OrderValues({
 OrderValues.propTypes = {
   orderPattern: PropTypes.array.isRequired,
   onOrderPatternUpdate: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 OrderValues.defaultProps = {
+  disabled: false,
 };
 
 export default OrderValues;

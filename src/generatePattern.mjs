@@ -1,6 +1,6 @@
 const generatePattern = ({
   baseValues,
-  orderPattern,
+  orderPatterns,
 }) => {
   const pattern = [];
 
@@ -11,7 +11,7 @@ const generatePattern = ({
       const yDim = [];
       xDim.push(yDim);
       for (let z = 0; z < 3; z += 1) {
-        yDim.push(baseValues[z][orderPattern[(x * 4) + y]]);
+        yDim.push(baseValues[z][orderPatterns[z][(x * 4) + y]]);
       }
     }
   }

@@ -10,7 +10,11 @@ test('Low Light Ditherpatterns match original values', () => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
-      orderPattern: orderPatternDither,
+      orderPatterns: [
+        orderPatternDither,
+        orderPatternDither,
+        orderPatternDither,
+      ],
     });
   });
 
@@ -22,7 +26,11 @@ test('High Light Ditherpatterns match original values', () => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
-      orderPattern: orderPatternDither,
+      orderPatterns: [
+        orderPatternDither,
+        orderPatternDither,
+        orderPatternDither,
+      ],
     });
   });
 
@@ -34,7 +42,11 @@ test('Low Light Non-Ditherpatterns match original values', () => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
-      orderPattern: orderPatternNoDither,
+      orderPatterns: [
+        orderPatternNoDither,
+        orderPatternNoDither,
+        orderPatternNoDither,
+      ],
     });
   });
 
@@ -46,7 +58,11 @@ test('High Light Non-Ditherpatterns match original values', () => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
-      orderPattern: orderPatternNoDither,
+      orderPatterns: [
+        orderPatternNoDither,
+        orderPatternNoDither,
+        orderPatternNoDither,
+      ],
     });
   });
 

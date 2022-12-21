@@ -21,7 +21,11 @@ const patterns = Object.keys(patternBases)
       return (
         generatePattern({
           baseValues,
-          orderPattern,
+          orderPatterns: [
+            orderPattern,
+            orderPattern,
+            orderPattern,
+          ],
         })
       );
     })
