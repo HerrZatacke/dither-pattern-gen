@@ -1,19 +1,19 @@
-import fs from 'fs';
+export const patternToC = (pattern) => (
+  `    { ${
+    pattern.flat(Infinity).map((value) => (
+      `0x${value.toString(16).toUpperCase()}`
+    )).join(', ')
+  } }`
+);
 
-const toC = (patterns) => {
-  patterns.forEach((pattern, index) => {
-    const patternC = pattern
-      .map((group) => (
-        `    { ${
-          group.flat(Infinity).map((value) => (
-            `0x${value.toString(16).toUpperCase()}`
-          )).join(', ')
-        } }`
-      ))
-      .join(',\n');
+export const groupToC = (fs) => (patterns, index) => {
+  const patternC = patterns
+    .map(patternToC)
+    .join(',\n');
 
-    fs.writeFileSync(`out/dither_pattern_${index}.c`, `{\n${patternC}\n }`);
-  });
+  fs.writeFileSync(`out/dither_pattern_${index}.c`, `{\n${patternC}\n }`);
 };
 
-export default toC;
+export const toC = (fs) => (groups) => {
+  groups.forEach(groupToC(fs));
+};
