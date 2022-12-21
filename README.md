@@ -1,4 +1,5 @@
 # Dither pattern generator and documentation
+You can try out the functions on [herrzatacke.github.io/dither-pattern-gen](https://herrzatacke.github.io/dither-pattern-gen/)
 
 ## Purpose
 The GameBoy Camera uses various dither patterns to convert analog greyscale images received by it's sensor to 2-bit greyscale images which is the common image format across gameboys.  
