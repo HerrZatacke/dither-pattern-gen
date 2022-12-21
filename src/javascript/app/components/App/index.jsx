@@ -3,6 +3,7 @@ import './index.scss';
 import FileInput from '../FileInput';
 import ImagePreview from '../ImagePreview';
 import PatternMaker from '../PatternMaker';
+import { patternToC } from '../../../../tools/toC.mjs';
 
 function App() {
   const [sourceImageData, setSourceImageData] = useState({});
@@ -24,6 +25,9 @@ function App() {
       <PatternMaker
         onPatternUpdate={setPattern}
       />
+      <code className="app__c-pattern">
+        { patternToC(pattern) }
+      </code>
     </div>
   );
 }
