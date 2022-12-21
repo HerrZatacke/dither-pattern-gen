@@ -19,10 +19,10 @@ function BaseValues({
         className="base-values__slider"
         value={patternBaseValues[0]}
         min={0}
-        max={patternBaseValues[1]}
+        max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
-            parseInt(target.value, 10),
+            Math.max(0, Math.min(patternBaseValues[1], parseInt(target.value, 10))),
             patternBaseValues[1],
             patternBaseValues[2],
             patternBaseValues[3],
@@ -33,12 +33,12 @@ function BaseValues({
         type="range"
         className="base-values__slider"
         value={patternBaseValues[1]}
-        min={patternBaseValues[0]}
-        max={patternBaseValues[2]}
+        min={0}
+        max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
             patternBaseValues[0],
-            parseInt(target.value, 10),
+            Math.max(patternBaseValues[0], Math.min(patternBaseValues[2], parseInt(target.value, 10))),
             patternBaseValues[2],
             patternBaseValues[3],
           ]);
@@ -48,13 +48,13 @@ function BaseValues({
         type="range"
         className="base-values__slider"
         value={patternBaseValues[2]}
-        min={patternBaseValues[1]}
-        max={patternBaseValues[3]}
+        min={0}
+        max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
             patternBaseValues[0],
             patternBaseValues[1],
-            parseInt(target.value, 10),
+            Math.max(patternBaseValues[1], Math.min(patternBaseValues[3], parseInt(target.value, 10))),
             patternBaseValues[3],
           ]);
         }}
@@ -63,14 +63,14 @@ function BaseValues({
         type="range"
         className="base-values__slider"
         value={patternBaseValues[3]}
-        min={patternBaseValues[2]}
+        min={0}
         max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
             patternBaseValues[0],
             patternBaseValues[1],
             patternBaseValues[2],
-            parseInt(target.value, 10),
+            Math.max(patternBaseValues[2], Math.min(255, parseInt(target.value, 10))),
           ]);
         }}
       />
