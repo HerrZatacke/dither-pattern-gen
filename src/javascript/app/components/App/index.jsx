@@ -14,6 +14,16 @@ function App() {
         className="app__headline"
       >
         Dither pattern generator
+        <sub>
+          <a
+            className="app__doc-link"
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/HerrZatacke/dither-pattern-gen"
+          >
+            [Docs]
+          </a>
+        </sub>
       </h2>
       <FileInput
         onImageDataChange={setSourceImageData}

@@ -9,8 +9,19 @@
     font-size: 20px;
   }
 
+  &__doc-link {
+    font-size: 12px;
+    margin-left: 20px;
+    color: inherit;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+
   &__c-pattern {
     font-family: monospace;
     width: 340px;
   }
+
 }
