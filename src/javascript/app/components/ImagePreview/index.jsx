@@ -30,13 +30,13 @@ function ImagePreview({
   return (
     <div className="image-preview">
       <canvas
-        className="import-preview-image__canvas"
+        className="image-preview__canvas"
         width={width}
         height={height}
         ref={originalCanvas}
       />
       <canvas
-        className="import-preview-image__canvas"
+        className="image-preview__canvas"
         width={width}
         height={height}
         ref={canvas}
