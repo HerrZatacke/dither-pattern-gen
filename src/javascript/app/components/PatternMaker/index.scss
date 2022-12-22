@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 340px;
+  width: $base-width;
+  margin-bottom: 20px;
 
   &__checkbox {
     display: flex;

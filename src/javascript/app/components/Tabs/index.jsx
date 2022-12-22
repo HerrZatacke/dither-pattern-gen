@@ -6,28 +6,33 @@ function Tabs({
   children,
   labels,
 }) {
-  const [activeTab, setActiveTab] = useState(children[0].key);
-
-  const activeChild = (children.find(({ key }) => (key === activeTab)));
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
     <div className="tabs">
       <div className="tabs__buttons">
-        { labels.map(({ label, key }) => (
+        { labels.map(({ label }, index) => (
           <button
-            className={`tabs__button ${key === activeTab ? 'tabs__button--active' : ''}`}
-            key={key}
+            className={`tabs__button ${index === activeTabIndex ? 'tabs__button--active' : ''}`}
+            key={index}
             type="button"
             onClick={() => {
-              setActiveTab(key);
+              setActiveTabIndex(index);
             }}
           >
             { label }
           </button>
         ))}
       </div>
-      <div className="tabs__tabs-content">
-        { activeChild }
+      <div className="tabs__tabs">
+        { children.map((child, index) => (
+          <div
+            key={index}
+            className={`tabs__tab ${index === activeTabIndex ? 'tabs__tab--active' : ''}`}
+          >
+            { child }
+          </div>
+        )) }
       </div>
     </div>
   );

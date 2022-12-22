@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 340px;
+  width: $base-width;
 
   &__value {
     width: 78px;
@@ -12,7 +12,7 @@
     text-align: right;
     padding: 0;
     margin: 4px 0;
-    border: 1px solid #000000;
+    border: 1px solid $color-dark;
     transition:
       height 300ms ease-in-out,
       margin 300ms ease-in-out,
@@ -23,7 +23,7 @@
       height: 12px;
       margin: 0 0 -1px 0;
       font-size: 11px;
-      border: 1px solid rgba(#000000, 0.2);
+      border: 1px solid rgba($color-dark, 0.2);
     }
   }
 }

@@ -5,7 +5,7 @@ const defaultPalette = {
   white: 0xff,
 };
 
-const ditherFilter = (imageData, matrix) => {
+const ditherFilter = (imageData, pattern) => {
   let pixelCount = 0;
   const ditheredImageData = new ImageData(imageData.width, imageData.height);
 
@@ -19,7 +19,7 @@ const ditherFilter = (imageData, matrix) => {
 
     // let p = Math.ceil((pixels[i] + 255) / 2);
     let p = pixels[i];
-    const ditherGroup = matrix[x][y];
+    const ditherGroup = pattern[x][y];
 
     if (p < ditherGroup[0]) {
       p = black;
@@ -45,10 +45,10 @@ const applyBitmapFilter = ({
   targetCanvas,
   originalCanvas,
   imageData,
-  matrix,
+  pattern,
 }) => {
   const context = targetCanvas.getContext('2d');
-  context.putImageData(ditherFilter(imageData, matrix), 0, 0);
+  context.putImageData(ditherFilter(imageData, pattern), 0, 0);
   const originalContext = originalCanvas.getContext('2d');
   originalContext.putImageData(imageData, 0, 0);
 };

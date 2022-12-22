@@ -1,5 +1,5 @@
 .tabs {
-  width: 340px;
+  width: $base-width;
 
   &__buttons {
     display: flex;
@@ -8,7 +8,7 @@
 
   &__button {
     display: block;
-    background-color: #ddeeff;
+    background-color: $color-light;
     border: 1px solid black;
     text-align: left;
     flex: 1 1 auto;
@@ -16,12 +16,20 @@
     cursor: pointer;
 
     &--active {
-      background: #000;
-      color: #ddeeff;
+      background: $color-dark;
+      color: $color-light;
     }
   }
 
-  &__tabs-content {
+  &__tabs {
     margin-top: 20px;
+  }
+
+  &__tab {
+    display: none;
+
+    &--active {
+      display: block;
+    }
   }
 }

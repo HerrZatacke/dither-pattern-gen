@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import FileInput from '../FileInput';
-import ImagePreview from '../ImagePreview';
-import PatternMaker from '../PatternMaker';
+import EditSinglePattern from '../EditSinglePattern';
+import EditPatternGroup from '../EditPatternGroup';
 import Tabs from '../Tabs';
-import { patternToC } from '../../../../tools/toC.mjs';
+import getImageData from '../FileInput/getImageData';
 
 function App() {
-  const [sourceImageData, setSourceImageData] = useState({});
-  const [pattern, setPattern] = useState([]);
+  const [sourceImageData, setSourceImageData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('./gradient.png');
+      const blob = await res.blob();
+      const imageData = await getImageData(blob);
+      setSourceImageData(imageData);
+    };
+
+    fetchData();
+  }, [setSourceImageData]);
+
   return (
     <div className="app">
       <h2
@@ -33,29 +44,19 @@ function App() {
         labels={[
           {
             label: 'Single Pattern',
-            key: 'single',
           },
           {
             label: 'Pattern Group',
-            key: 'group',
           },
         ]}
       >
-        <div key="single">
-          <ImagePreview
-            imageData={sourceImageData}
-            pattern={pattern}
-          />
-          <PatternMaker
-            onPatternUpdate={setPattern}
-          />
-          <code className="app__c-pattern">
-            { patternToC(pattern) }
-          </code>
-        </div>
-        <div key="group">
-          <p>To be implemented...</p>
-        </div>
+        <EditSinglePattern
+          imageData={sourceImageData}
+        />
+        <EditPatternGroup
+          imageData={sourceImageData}
+        />
+        <div key="group" />
       </Tabs>
     </div>
   );

@@ -16,16 +16,16 @@ function ImagePreview({
         targetCanvas: canvas.current,
         originalCanvas: originalCanvas.current,
         imageData: imageData.imageData,
-        matrix: pattern,
+        pattern,
       });
     }
   });
 
-  const { width, height } = imageData;
-
-  if (!imageData || !width || !height) {
+  if (!pattern?.length || !imageData?.width || !imageData?.height) {
     return null;
   }
+
+  const { width, height } = imageData;
 
   return (
     <div className="image-preview">
@@ -46,8 +46,13 @@ function ImagePreview({
 }
 
 ImagePreview.propTypes = {
-  imageData: PropTypes.object.isRequired,
-  pattern: PropTypes.array.isRequired,
+  imageData: PropTypes.object,
+  pattern: PropTypes.array,
+};
+
+ImagePreview.defaultProps = {
+  imageData: null,
+  pattern: null,
 };
 
 export default ImagePreview;
