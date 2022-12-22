@@ -9,11 +9,16 @@ function BaseValues({
 
   return (
     <div className="base-values">
-      <code className="base-values__values">
-        { patternBaseValues.map((value) => (
-          `0x${value.toString(16).padStart(2, '0')}`
-        )).join(', ') }
-      </code>
+      <div className="base-values__values">
+        { patternBaseValues.map((value, index) => (
+          <code
+            key={index}
+            className="base-values__value"
+          >
+            { `0x${value.toString(16).padStart(2, '0')}` }
+          </code>
+        )) }
+      </div>
       <input
         type="range"
         className="base-values__slider"

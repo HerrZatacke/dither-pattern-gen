@@ -4,7 +4,15 @@
   gap: 10px;
 
   &__values {
-    font-family: monospace;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__value {
+    font-family: monospace;
+    font-size: 18px;
+    background: rgba(#000000, 0.2);
+    padding: 10px 20px;
   }
 }

@@ -12,6 +12,7 @@
     text-align: right;
     padding: 0;
     margin: 4px 0;
+    border: 1px solid #000000;
     transition:
       height 300ms ease-in-out,
       margin 300ms ease-in-out,
@@ -22,6 +23,7 @@
       height: 12px;
       margin: 0 0 -1px 0;
       font-size: 11px;
+      border: 1px solid rgba(#000000, 0.2);
     }
   }
 }
