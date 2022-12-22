@@ -1,6 +1,13 @@
 .image-preview {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: $base-width;
   margin-bottom: 20px;
+
+  &__arrow {
+    height: 30px;
+    line-height: 30px;
+    font-size: 26px;
+  }
 }

@@ -35,6 +35,11 @@ function ImagePreview({
         height={height}
         ref={originalCanvas}
       />
+      <span
+        className="image-preview__arrow"
+      >
+        →
+      </span>
       <canvas
         className="image-preview__canvas"
         width={width}
