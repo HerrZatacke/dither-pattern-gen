@@ -30,7 +30,7 @@ They can be viewed as a three dimensional array with the dimensions as follows:
 `x` and `y` are the coordinates in the 4x4 area to which the pattern is applied.  
 `z` defines the thresholds for the three greyscales (black/dark grey/light grey/white).
 
-All original dithering sets [are here for reference](reference/patterns.js).
+All original dithering sets [are here for reference](reference/patterns.mjs).
 
 ## Analysis of the patterns to get the "base values"
 The initial analysis aimed to create a visible representation of a pattern. For this - as pointed out by [github.com/hatchman](https://github.com/hatchman) - the best approach was to separate and sort the values of each z-layer.  
@@ -52,14 +52,14 @@ The slight deviations are due to the values being _rounded down_ to a full integ
 
 The first six patterns of the `ditherLowLightValues` group have the last group cut off at exactly 255. The slight "gap" to the end originates from the calculation of the linear distibution where the step size is calculated for 16 steps _ongoing from_ the first value.  
 _This approach will be used here to exactly reproduce the values of the original patterns._  
-The [`generateValueRange` function](src/generateBaseValues.js) for creating each sequence uses this approach.  
+The [`generateValueRange` function](src/generateBaseValues.mjs) for creating each sequence uses this approach.  
 
-Through using the first value of each pattern's sequences and manually trying for the last value, the [required boundaries for all four original patterns](src/data/patternBases.js) could be determined (this file also contains additional custom sequences). 
+Through using the first value of each pattern's sequences and manually trying for the last value, the [required boundaries for all four original patterns](src/data/patternBases.mjs) could be determined (this file also contains additional custom sequences). 
 
 ## Ordering the generated sequences to create the actual dither pattern.
 Having linear sequences does not create an aesthetically pleasing image. So each of the three sequences (z-dimension) are arranged into a [Bayer matrix threshold map](https://en.wikipedia.org/wiki/Ordered_dithering).  
 The two non-dithering sets are only using the first value of the sequences.  
-The [ordering matrix](src/data/orderPatterns.js) to create the paterns are used by [the `generatePattern` function](src/generatePattern.js) which re-assembles and finalizes the usable dithering pattern. 
+The [ordering matrix](src/data/orderPatterns.mjs) to create the paterns are used by [the `generatePattern` function](src/generatePattern.mjs) which re-assembles and finalizes the usable dithering pattern. 
 
 ## Thanks
 * [github.com/hatchman](https://github.com/hatchman) for giving me the idea to sort the values to spot a pattern
