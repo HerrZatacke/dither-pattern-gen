@@ -21,7 +21,7 @@ function OrderValues({
             disabled={disabled}
             onChange={({ target }) => {
               const newOrderPattern = [...orderPattern];
-              newOrderPattern[index] = parseInt(target.value, 10) || 0;
+              newOrderPattern[index] = Math.min(15, Math.max(0, parseInt(target.value, 10) || 0));
               onOrderPatternUpdate(newOrderPattern);
             }}
           />
