@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import './index.scss';
 import applyBitmapFilter from '../../../../tools/applyBitmapFilter';
 
 function ImagePreview({
-  imageData,
-  pattern,
+  baseValues,
 }) {
   const canvas = useRef(null);
   const originalCanvas = useRef(null);
+
+  const [imageData, orderPatterns] = useSelector((state) => [state.imageData, state.orderPatterns]);
 
   useEffect(() => {
     if (canvas.current && originalCanvas.current) {
@@ -16,12 +18,13 @@ function ImagePreview({
         targetCanvas: canvas.current,
         originalCanvas: originalCanvas.current,
         imageData: imageData.imageData,
-        pattern,
+        orderPatterns,
+        baseValues,
       });
     }
   });
 
-  if (!pattern?.length || !imageData?.width || !imageData?.height) {
+  if (!orderPatterns?.length || !imageData?.width || !imageData?.height) {
     return null;
   }
 
@@ -51,13 +54,9 @@ function ImagePreview({
 }
 
 ImagePreview.propTypes = {
-  imageData: PropTypes.object,
-  pattern: PropTypes.array,
+  baseValues: PropTypes.array.isRequired,
 };
 
-ImagePreview.defaultProps = {
-  imageData: null,
-  pattern: null,
-};
+ImagePreview.defaultProps = {};
 
 export default ImagePreview;

@@ -1,20 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './index.scss';
+import { useDispatch } from 'react-redux';
 import getImageData from './getImageData';
+import { SET_IMAGE_DATA } from '../../store/actions';
 
-function FileInput({
-  onImageDataChange,
-}) {
+function FileInput() {
+
+  const dispatch = useDispatch();
+
   const onChange = async ({ target: inputField }) => {
     if (inputField.files.length) {
+      console.log(1, Date.now());
       const blob = new Blob([new Uint8Array(await inputField.files[0].arrayBuffer())]);
       getImageData(blob)
         .then((imageData) => {
-          onImageDataChange(imageData);
+          dispatch({
+            type: SET_IMAGE_DATA,
+            payload: imageData,
+          });
         });
     } else {
-      onImageDataChange(null);
+      dispatch({
+        type: SET_IMAGE_DATA,
+        payload: null,
+      });
     }
   };
 
@@ -28,11 +37,8 @@ function FileInput({
   );
 }
 
-FileInput.propTypes = {
-  onImageDataChange: PropTypes.func.isRequired,
-};
+FileInput.propTypes = {};
 
-FileInput.defaultProps = {
-};
+FileInput.defaultProps = {};
 
 export default FileInput;

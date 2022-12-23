@@ -5,6 +5,8 @@ body {
 
   background: $color-light;
   color: $color-dark;
+
+  overflow-y: scroll;
 }
 
 * {

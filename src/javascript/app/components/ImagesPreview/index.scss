@@ -15,9 +15,14 @@
   &__button {
     border: none;
     flex: auto 1 1;
-    width: 22px;
+    flex-basis: 22px;
+    height: 22px;
     padding: 2px;
     background-color: $color-dark;
     color: $color-light;
+
+    &--active {
+      opacity: 0.6;
+    }
   }
 }

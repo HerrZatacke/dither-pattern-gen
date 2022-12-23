@@ -6,7 +6,7 @@ function Tabs({
   children,
   labels,
 }) {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [activeTabIndex, setActiveTabIndex] = useState(1);
 
   return (
     <div className="tabs">

@@ -1,12 +1,22 @@
 import generatePattern from './generatePattern.mjs';
 import generateBaseValues from './generateBaseValues.mjs';
 
-import refPatterns from '../reference/patterns.mjs';
-import patternBases from './data/patternBases.mjs';
+import {
+  ditherLowLightValues as ditherLowLightValuesReference,
+  ditherHighLightValues as ditherHighLightValuesReference,
+  ditherNoLowLightValues as ditherNoLowLightValuesReference,
+  ditherNoHighLightValues as ditherNoHighLightValuesReference,
+} from '../reference/patterns.mjs';
+import {
+  ditherLowLightValues,
+  ditherHighLightValues,
+  ditherNoLowLightValues,
+  ditherNoHighLightValues,
+} from './data/patternBases.mjs';
 import { orderPatternDither, orderPatternNoDither } from './data/orderPatterns.mjs';
 
 test('Low Light Ditherpatterns match original values', () => {
-  const result = patternBases.ditherLowLightValues.map((values) => {
+  const result = ditherLowLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
@@ -18,11 +28,11 @@ test('Low Light Ditherpatterns match original values', () => {
     });
   });
 
-  expect(result).toStrictEqual(refPatterns.ditherLowLightValues);
+  expect(result).toStrictEqual(ditherLowLightValuesReference);
 });
 
 test('High Light Ditherpatterns match original values', () => {
-  const result = patternBases.ditherHighLightValues.map((values) => {
+  const result = ditherHighLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
@@ -34,11 +44,11 @@ test('High Light Ditherpatterns match original values', () => {
     });
   });
 
-  expect(result).toStrictEqual(refPatterns.ditherHighLightValues);
+  expect(result).toStrictEqual(ditherHighLightValuesReference);
 });
 
 test('Low Light Non-Ditherpatterns match original values', () => {
-  const result = patternBases.ditherNoLowLightValues.map((values) => {
+  const result = ditherNoLowLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
@@ -50,11 +60,11 @@ test('Low Light Non-Ditherpatterns match original values', () => {
     });
   });
 
-  expect(result).toStrictEqual(refPatterns.ditherNoLowLightValues);
+  expect(result).toStrictEqual(ditherNoLowLightValuesReference);
 });
 
 test('High Light Non-Ditherpatterns match original values', () => {
-  const result = patternBases.ditherNoHighLightValues.map((values) => {
+  const result = ditherNoHighLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
@@ -66,5 +76,5 @@ test('High Light Non-Ditherpatterns match original values', () => {
     });
   });
 
-  expect(result).toStrictEqual(refPatterns.ditherNoHighLightValues);
+  expect(result).toStrictEqual(ditherNoHighLightValuesReference);
 });

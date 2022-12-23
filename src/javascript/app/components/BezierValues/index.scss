@@ -1,0 +1,18 @@
+.bezier-curve {
+  width: 179px;
+  margin-bottom: 20px;
+
+  &__curve-editor {
+    margin: -8px;
+    flex: 179px 1 0;
+  }
+
+  &__offsets {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__slider {}
+}

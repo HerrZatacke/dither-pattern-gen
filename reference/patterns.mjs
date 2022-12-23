@@ -1,5 +1,5 @@
 // Set 1 (High Light)
-const ditherHighLightValues = [
+export const ditherHighLightValues = [
   [
     [[128, 143, 208], [139, 191, 224], [130, 155, 212], [142, 203, 228]],
     [[135, 175, 219], [131, 159, 213], [138, 187, 223], [134, 171, 217]],
@@ -99,7 +99,7 @@ const ditherHighLightValues = [
 ];
 
 // Set 2 (Low Light)
-const ditherLowLightValues = [
+export const ditherLowLightValues = [
   /// First Test Dimension
   [
     [[128, 148, 220], [143, 202, 246], [131, 161, 226], [146, 215, 252]],
@@ -200,7 +200,7 @@ const ditherLowLightValues = [
 ];
 
 // Set 3 (No Dither - High Light)
-const ditherNoHighLightValues = [
+export const ditherNoHighLightValues = [
   [
     [[128, 143, 208], [128, 143, 208], [128, 143, 208], [128, 143, 208]],
     [[128, 143, 208], [128, 143, 208], [128, 143, 208], [128, 143, 208]],
@@ -300,7 +300,7 @@ const ditherNoHighLightValues = [
 ];
 
 // Set 4 (No Dither - Low Light)
-const ditherNoLowLightValues = [
+export const ditherNoLowLightValues = [
   [
     [[128, 148, 220], [128, 148, 220], [128, 148, 220], [128, 148, 220]],
     [[128, 148, 220], [128, 148, 220], [128, 148, 220], [128, 148, 220]],
@@ -398,13 +398,3 @@ const ditherNoLowLightValues = [
     [[152, 152, 152], [152, 152, 152], [152, 152, 152], [152, 152, 152]],
   ],
 ];
-
-
-const patterns = {
-  ditherHighLightValues,
-  ditherLowLightValues,
-  ditherNoHighLightValues,
-  ditherNoLowLightValues,
-};
-
-module.exports = patterns;

@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './index.scss';
 import FileInput from '../FileInput';
 import EditSinglePattern from '../EditSinglePattern';
 import EditPatternGroup from '../EditPatternGroup';
 import Tabs from '../Tabs';
-import getImageData from '../FileInput/getImageData';
 
 function App() {
-  const [sourceImageData, setSourceImageData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('./gradient.png');
-      const blob = await res.blob();
-      const imageData = await getImageData(blob);
-      setSourceImageData(imageData);
-    };
-
-    fetchData();
-  }, [setSourceImageData]);
-
   return (
     <div className="app">
       <h2
@@ -37,9 +23,7 @@ function App() {
           </a>
         </sub>
       </h2>
-      <FileInput
-        onImageDataChange={setSourceImageData}
-      />
+      <FileInput />
       <Tabs
         labels={[
           {
@@ -50,13 +34,8 @@ function App() {
           },
         ]}
       >
-        <EditSinglePattern
-          imageData={sourceImageData}
-        />
-        <EditPatternGroup
-          imageData={sourceImageData}
-        />
-        <div key="group" />
+        <EditSinglePattern />
+        <EditPatternGroup />
       </Tabs>
     </div>
   );

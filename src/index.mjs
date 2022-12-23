@@ -1,13 +1,37 @@
 import fs from 'fs';
 import generatePattern from './generatePattern.mjs';
 import generateBaseValues from './generateBaseValues.mjs';
-import patternBases from './data/patternBases.mjs';
+import {
+  ditherLowLightValues,
+  ditherHighLightValues,
+  ditherNoLowLightValues,
+  ditherNoHighLightValues,
+  inTheDarkLow,
+  inTheDarkHigh,
+  swoosh,
+  swooshTight,
+  ditherLowLightValuesShift,
+  ditherHighLightValuesShift,
+} from './data/patternBases.mjs';
 import { orderPatternDither, orderPatternNoDither } from './data/orderPatterns.mjs';
 import sortPattern from './tools/sortPattern.mjs';
 
 import toPGM from './tools/toPGM.mjs';
 import toJSONFile from './tools/toJSONFile.mjs';
 import { toC } from './tools/toC.mjs';
+
+const patternBases = {
+  ditherLowLightValues,
+  ditherHighLightValues,
+  ditherNoLowLightValues,
+  ditherNoHighLightValues,
+  inTheDarkLow,
+  inTheDarkHigh,
+  swoosh,
+  swooshTight,
+  ditherLowLightValuesShift,
+  ditherHighLightValuesShift,
+}
 
 const patterns = Object.keys(patternBases)
   .map((patternGroupName) => (

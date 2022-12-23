@@ -1,1 +1,9 @@
-.edit-group-pattern {}
+.edit-group-pattern {
+
+  &__curves {
+    width: $base-width;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+  }
+}

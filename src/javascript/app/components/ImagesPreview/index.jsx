@@ -4,27 +4,22 @@ import './index.scss';
 import ImagePreview from '../ImagePreview';
 
 function ImagesPreview({
-  imageData,
-  patterns,
+  baseValues,
 }) {
-  const [activePatternIndex, setActivePatternIndex] = useState(Math.floor(patterns.length / 2));
-  if (!imageData?.width || !imageData?.height) {
-    return null;
-  }
+  const [activePatternIndex, setActivePatternIndex] = useState(Math.floor(baseValues.length / 2));
 
   // const { width, height } = imageData;
 
   return (
     <div className="images-preview">
       <ImagePreview
-        pattern={patterns[activePatternIndex]}
-        imageData={imageData}
+        baseValues={baseValues[activePatternIndex]}
       />
       <div className="images-preview__buttons">
-        { patterns?.map((_, index) => (
+        { baseValues?.map((_, index) => (
           <button
             type="button"
-            className="images-preview__button"
+            className={`images-preview__button ${index === activePatternIndex ? 'images-preview__button--active' : ''}`}
             key={index}
             onMouseEnter={() => setActivePatternIndex(index)}
             onClick={() => setActivePatternIndex(index)}
@@ -38,12 +33,9 @@ function ImagesPreview({
 }
 
 ImagesPreview.propTypes = {
-  imageData: PropTypes.object,
-  patterns: PropTypes.array.isRequired,
+  baseValues: PropTypes.array.isRequired,
 };
 
-ImagesPreview.defaultProps = {
-  imageData: null,
-};
+ImagesPreview.defaultProps = {};
 
 export default ImagesPreview;

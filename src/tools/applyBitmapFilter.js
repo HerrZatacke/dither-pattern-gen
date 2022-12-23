@@ -1,3 +1,5 @@
+import generatePattern from '../generatePattern.mjs';
+
 const defaultPalette = {
   black: 0x00,
   darkGray: 0x55,
@@ -45,10 +47,16 @@ const applyBitmapFilter = ({
   targetCanvas,
   originalCanvas,
   imageData,
-  pattern,
+  orderPatterns,
+  baseValues,
 }) => {
+  const patterns = generatePattern({
+    orderPatterns,
+    baseValues,
+  });
+
   const context = targetCanvas.getContext('2d');
-  context.putImageData(ditherFilter(imageData, pattern), 0, 0);
+  context.putImageData(ditherFilter(imageData, patterns), 0, 0);
   const originalContext = originalCanvas.getContext('2d');
   originalContext.putImageData(imageData, 0, 0);
 };

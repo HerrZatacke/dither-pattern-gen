@@ -1,0 +1,15 @@
+.pattern-preview {
+  position: relative;
+  height: 100px;
+
+  &__canvas {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    box-shadow: rgba($color-dark, 0.4) 2px 2px 3px 1px;
+    margin: 0 auto 10px;
+    width: 1040px;
+    image-rendering: pixelated;
+  }
+}

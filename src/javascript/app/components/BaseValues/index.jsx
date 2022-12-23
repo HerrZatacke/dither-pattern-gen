@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 function BaseValues({
-  patternBaseValues,
+  baseValues,
   onBaseValuesUpdate,
 }) {
 
   return (
     <div className="base-values">
       <div className="base-values__values">
-        { patternBaseValues.map((value, index) => (
+        { baseValues.map((value, index) => (
           <code
             key={index}
             className="base-values__value"
@@ -22,60 +22,60 @@ function BaseValues({
       <input
         type="range"
         className="base-values__slider"
-        value={patternBaseValues[0]}
+        value={baseValues[0]}
         min={0}
         max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
-            Math.max(0, Math.min(patternBaseValues[1], parseInt(target.value, 10))),
-            patternBaseValues[1],
-            patternBaseValues[2],
-            patternBaseValues[3],
+            Math.max(0, Math.min(baseValues[1], parseInt(target.value, 10))),
+            baseValues[1],
+            baseValues[2],
+            baseValues[3],
           ]);
         }}
       />
       <input
         type="range"
         className="base-values__slider"
-        value={patternBaseValues[1]}
+        value={baseValues[1]}
         min={0}
         max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
-            patternBaseValues[0],
-            Math.max(patternBaseValues[0], Math.min(patternBaseValues[2], parseInt(target.value, 10))),
-            patternBaseValues[2],
-            patternBaseValues[3],
+            baseValues[0],
+            Math.max(baseValues[0], Math.min(baseValues[2], parseInt(target.value, 10))),
+            baseValues[2],
+            baseValues[3],
           ]);
         }}
       />
       <input
         type="range"
         className="base-values__slider"
-        value={patternBaseValues[2]}
+        value={baseValues[2]}
         min={0}
         max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
-            patternBaseValues[0],
-            patternBaseValues[1],
-            Math.max(patternBaseValues[1], Math.min(patternBaseValues[3], parseInt(target.value, 10))),
-            patternBaseValues[3],
+            baseValues[0],
+            baseValues[1],
+            Math.max(baseValues[1], Math.min(baseValues[3], parseInt(target.value, 10))),
+            baseValues[3],
           ]);
         }}
       />
       <input
         type="range"
         className="base-values__slider"
-        value={patternBaseValues[3]}
+        value={baseValues[3]}
         min={0}
         max={255}
         onChange={({ target }) => {
           onBaseValuesUpdate([
-            patternBaseValues[0],
-            patternBaseValues[1],
-            patternBaseValues[2],
-            Math.max(patternBaseValues[2], Math.min(255, parseInt(target.value, 10))),
+            baseValues[0],
+            baseValues[1],
+            baseValues[2],
+            Math.max(baseValues[2], Math.min(255, parseInt(target.value, 10))),
           ]);
         }}
       />
@@ -85,7 +85,7 @@ function BaseValues({
 
 BaseValues.propTypes = {
   onBaseValuesUpdate: PropTypes.func.isRequired,
-  patternBaseValues: PropTypes.array.isRequired,
+  baseValues: PropTypes.array.isRequired,
 };
 
 BaseValues.defaultProps = {
