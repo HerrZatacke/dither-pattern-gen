@@ -13,7 +13,11 @@
     "test": "jest --config=./jest.config.js"
   },
   "keywords": [
-    "bayer", "dither", "gameboy", "camera", "2bit"
+    "bayer",
+    "dither",
+    "gameboy",
+    "camera",
+    "2bit"
   ],
   "author": "Herr Zatacke",
   "license": "MIT",
@@ -27,6 +31,7 @@
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "chalk": "^3.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.13.1",
     "css-loader": "^5.2.6",
     "eslint": "^8.13.0",
@@ -52,7 +57,7 @@
     "postcss-pxtorem": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
-    "react-bezier-curve-editor":"^1.1.2",
+    "react-bezier-curve-editor": "^1.1.2",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "redux": "^4.2.0",
