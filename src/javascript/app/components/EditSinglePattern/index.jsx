@@ -4,7 +4,7 @@ import './index.scss';
 import BaseValues from '../BaseValues';
 import OrderValuesSet from '../OrderValuesSet';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
-import CodePreview from '../CodePreview';
+import SingleCodePreview from '../SingleCodePreview';
 
 function EditSinglePattern() {
   const [baseValues, setBaseValues] = useState([0x01, 0x55, 0xAA, 0xFF]);
@@ -21,7 +21,7 @@ function EditSinglePattern() {
         onBaseValuesUpdate={setBaseValues}
       />
       <OrderValuesSet />
-      <CodePreview baseValues={baseValues} />
+      <SingleCodePreview baseValues={baseValues} />
     </div>
   );
 }

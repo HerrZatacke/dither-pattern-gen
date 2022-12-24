@@ -18,7 +18,7 @@ const drawPattern = ({
 
   for (let x = 0; x <= 256; x += 1) {
     context.fillStyle = (x % 8) ? '#224455' : '#446699';
-    context.fillRect((x * 4) + 7, 4, 1, context.canvas.height - 8);
+    context.fillRect((x * 4) + 7, 7, 1, context.canvas.height - 14);
   }
 
   values.forEach((line, y) => {

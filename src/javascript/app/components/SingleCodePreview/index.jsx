@@ -6,7 +6,7 @@ import generatePattern from '../../../../generatePattern.mjs';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
 import './index.scss';
 
-function CodePreview({
+function SingleCodePreview({
   baseValues,
 }) {
 
@@ -18,9 +18,9 @@ function CodePreview({
   });
 
   return (
-    <div className="code-preview">
+    <div className="single-code-preview">
       <code
-        className="code-preview__c-pattern"
+        className="single-code-preview__c-pattern"
       >
         { patternToC(patterns) }
       </code>
@@ -28,10 +28,10 @@ function CodePreview({
   );
 }
 
-CodePreview.propTypes = {
+SingleCodePreview.propTypes = {
   baseValues: PropTypes.array.isRequired,
 };
 
-CodePreview.defaultProps = {};
+SingleCodePreview.defaultProps = {};
 
-export default CodePreview;
+export default SingleCodePreview;

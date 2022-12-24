@@ -1,0 +1,10 @@
+.group-code-preview {
+  overflow-x: scroll;
+  padding: 10px 0;
+  margin-bottom: 40px;
+
+  &__c-pattern {
+    font-family: monospace;
+    width: $base-width;
+  }
+}
