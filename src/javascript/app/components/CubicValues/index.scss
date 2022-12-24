@@ -7,6 +7,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-top-style: solid;
+    border-top-width: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 
   &__slider {

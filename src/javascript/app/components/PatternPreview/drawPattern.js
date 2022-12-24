@@ -1,3 +1,4 @@
+import { flip } from '../../../../generatePatternBaseValues.mjs';
 
 const colors = [
   '#666666',
@@ -5,9 +6,17 @@ const colors = [
   '#FFFFFF',
 ];
 
-const drawPattern = ({
+export const boundaryColors = [
+  '#22FF22',
+  '#FFFF44',
+  '#44FFFF',
+  '#ff44ff',
+];
+
+export const drawPattern = ({
   canvas,
   values,
+  boundaries,
 }) => {
   const context = canvas.getContext('2d', {
     willReadFrequently: true,
@@ -29,6 +38,19 @@ const drawPattern = ({
       });
     });
   });
-};
 
-export default drawPattern;
+  flip(boundaries)
+    .forEach((boundaryValues, color) => {
+      context.fillStyle = boundaryColors[color];
+      context.strokeStyle = boundaryColors[color];
+
+      boundaryValues.forEach((boundaryValue, y) => {
+        if (y > 0) {
+          context.beginPath();
+          context.moveTo((boundaryValues[y - 1] * 4) + 9, ((y - 1) * 4) + 9);
+          context.lineTo((boundaryValue * 4) + 9, (y * 4) + 9);
+          context.stroke();
+        }
+      });
+    });
+};

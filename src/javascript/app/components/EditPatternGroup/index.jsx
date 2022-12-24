@@ -7,6 +7,7 @@ import GroupCodePreview from '../GroupCodePreview';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
 import { flip } from '../../../../generatePatternBaseValues.mjs';
 import { orderPatternDither } from '../../../../data/orderPatterns.mjs';
+import { boundaryColors } from '../PatternPreview/drawPattern';
 import './index.scss';
 
 const defaultCurves = [
@@ -22,6 +23,7 @@ const cubicToBases = ([a, b, c]) => (
     .map((_, index) => (
       (a * (index ** 2)) + (b * index) + c
     ))
+    .map((value) => parseInt(value, 10))
     .map((value) => Math.min(255, Math.max(0, value)))
 );
 
@@ -34,7 +36,8 @@ function EditPatternGroup() {
     orderPatternDither,
   ]);
 
-  const baseValues = flip(cubeBases.map(cubicToBases)).map(generateBaseValues);
+  const boundaries = flip(cubeBases.map(cubicToBases));
+  const baseValues = boundaries.map(generateBaseValues);
 
   return (
     <div
@@ -43,11 +46,15 @@ function EditPatternGroup() {
       <ImagesPreview
         baseValues={baseValues}
       />
-      <PatternPreview groupBaseValues={baseValues} />
+      <PatternPreview
+        groupBaseValues={baseValues}
+        boundaries={boundaries}
+      />
       <div className="edit-group-pattern__curves">
         {
           cubeBases.map((values, index) => (
             <CubicValues
+              color={boundaryColors[index]}
               key={index}
               values={values}
               onUpdate={(newValues) => {

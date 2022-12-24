@@ -4,6 +4,7 @@ import './index.scss';
 
 function CubicValues({
   values,
+  color,
   onUpdate,
 }) {
 
@@ -15,7 +16,10 @@ function CubicValues({
 
   return (
     <div className="cubic-curve">
-      <div className="cubic-curve__values">
+      <div
+        className="cubic-curve__values"
+        style={{ borderColor: color }}
+      >
         <div
           className="cubic-curve__slider"
         >
@@ -89,6 +93,7 @@ function CubicValues({
 
 CubicValues.propTypes = {
   values: PropTypes.array.isRequired,
+  color: PropTypes.string.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 

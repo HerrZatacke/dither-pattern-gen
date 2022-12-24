@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
-import drawPattern from './drawPattern';
+import { drawPattern } from './drawPattern';
 
 function PatternPreview({
   groupBaseValues,
+  boundaries,
 }) {
   const canvas = useRef(null);
 
@@ -12,6 +13,7 @@ function PatternPreview({
     drawPattern({
       canvas: canvas.current,
       values: groupBaseValues,
+      boundaries,
     });
   });
 
@@ -29,6 +31,7 @@ function PatternPreview({
 
 PatternPreview.propTypes = {
   groupBaseValues: PropTypes.array.isRequired,
+  boundaries: PropTypes.array.isRequired,
 };
 
 PatternPreview.defaultProps = {
