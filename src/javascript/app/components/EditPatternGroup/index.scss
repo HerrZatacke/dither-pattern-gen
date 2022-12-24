@@ -1,9 +1,11 @@
 .edit-group-pattern {
 
   &__curves {
-    width: $base-width;
+    width: 1024px;
+    margin: 0 -325px;
     display: flex;
     flex-wrap: wrap;
-    gap: 17px;
+    justify-content: space-between;
+    gap: 8px;
   }
 }

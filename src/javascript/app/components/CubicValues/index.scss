@@ -1,0 +1,34 @@
+.cubic-curve {
+  flex: 240px 1 1;
+  margin-bottom: 20px;
+
+  &__values {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 4px;
+    background-color: rgba($color-dark, 0.2);
+    padding-left: 4px;
+  }
+
+  &__slider-input {
+    flex: auto 1 1;
+  }
+
+  &__slider-value {
+    flex: 72px 0 0;
+    width: 72px;
+    text-align: right;
+    font-family: monospace;
+    background-color: $color-dark;
+    color: $color-light;
+    padding: 4px 0 4px 4px;
+    line-height: 21px;
+    border: none;
+  }
+}

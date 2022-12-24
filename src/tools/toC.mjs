@@ -1,7 +1,7 @@
 export const patternToC = (pattern) => (
   `    { ${
     pattern.flat(Infinity).map((value) => (
-      `0x${value.toString(16).toUpperCase()}`
+      `0x${value.toString(16).padStart(2, '0').toUpperCase()}`
     )).join(', ')
   } }`
 );

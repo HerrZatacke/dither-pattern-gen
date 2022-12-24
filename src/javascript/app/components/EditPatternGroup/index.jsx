@@ -3,70 +3,30 @@ import ImagesPreview from '../ImagesPreview';
 import PatternPreview from '../PatternPreview';
 import OrderValuesSet from '../OrderValuesSet';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
-// import { ditherHighLightValues } from '../../../../data/patternBases.mjs';
+import { ditherHighLightValues } from '../../../../data/patternBases.mjs';
 import { orderPatternDither } from '../../../../data/orderPatterns.mjs';
 import './index.scss';
-import BezierValues from '../BezierValues';
-import getCubicBezierY from './getCubicBezierY';
 import { flip } from '../../../../generatePatternBaseValues.mjs';
+import CubicValues from '../CubicValues';
 
 const defaultCurves = [
-  {
-    values: [
-      0.367,
-      0.542,
-      0.644,
-      0.689,
-    ],
-    start: 128,
-    end: 146,
-  },
-  {
-    values: [
-      0.412,
-      0.796,
-      0.220,
-      0.909,
-    ],
-    start: 143,
-    end: 146,
-  },
-  {
-    values: [
-      0.389,
-      0.621,
-      0.672,
-      0.474,
-    ],
-    start: 181,
-    end: 142,
-  },
-  {
-    values: [
-      0.581,
-      0.915,
-      0.423,
-      0.338,
-    ],
-    start: 225,
-    end: 140,
-  },
+  [-0.01, 1.25, 128],
+  [-0.03, 0.55, 143],
+  [0.045, -3.985, 194.6],
+  [-0.13, -3.865, 231.55],
 ];
 
-const bezierToBases = (bezierBases) => {
-  const curve = getCubicBezierY(...bezierBases.values);
-  const width = bezierBases.end - bezierBases.start;
-
-  return (new Array(16))
+const cubicToBases = ([a, b, c]) => (
+  (new Array(16))
     .fill(null)
     .map((_, index) => (
-      Math.floor((curve(index * (1 / 16)) * width) + bezierBases.start)
+      (a * (index ** 2)) + (b * index) + c
     ))
-    .map((value) => Math.min(255, Math.max(0, value)));
-};
+    .map((value) => Math.min(255, Math.max(0, value)))
+);
 
 function EditPatternGroup() {
-  const [bezierBases, setBezierBases] = useState(defaultCurves);
+  const [cubeBases, setCubeBases] = useState(defaultCurves);
 
   const [orderPatterns, setOrderPatterns] = useState([
     orderPatternDither,
@@ -74,29 +34,27 @@ function EditPatternGroup() {
     orderPatternDither,
   ]);
 
-  const b = flip(bezierBases.map(bezierToBases));
+  const baseSeeds = flip(cubeBases.map(cubicToBases));
 
   return (
     <div
       className="edit-group-pattern"
     >
       <ImagesPreview
-        baseValues={b.map(generateBaseValues)}
+        baseValues={baseSeeds.map(generateBaseValues)}
       />
-      {/* <PatternPreview groupBaseValues={ditherHighLightValues.map(generateBaseValues)} /> */}
-      <PatternPreview groupBaseValues={b.map(generateBaseValues)} />
+      <PatternPreview groupBaseValues={ditherHighLightValues.map(generateBaseValues)} />
+      <PatternPreview groupBaseValues={baseSeeds.map(generateBaseValues)} />
       <div className="edit-group-pattern__curves">
         {
-          bezierBases.map(({ values, start, end }, index) => (
-            <BezierValues
+          cubeBases.map((values, index) => (
+            <CubicValues
               key={index}
               values={values}
-              start={start}
-              end={end}
               onUpdate={(newValues) => {
-                const newBases = [...bezierBases];
+                const newBases = [...cubeBases];
                 newBases[index] = newValues;
-                setBezierBases(newBases);
+                setCubeBases(newBases);
               }}
             />
           ))
