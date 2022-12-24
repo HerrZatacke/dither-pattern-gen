@@ -4,8 +4,6 @@ import generateBaseValues from './generateBaseValues.mjs';
 import {
   ditherLowLightValues,
   ditherHighLightValues,
-  ditherNoLowLightValues,
-  ditherNoHighLightValues,
   inTheDarkLow,
   inTheDarkHigh,
   swoosh,
@@ -13,7 +11,7 @@ import {
   ditherLowLightValuesShift,
   ditherHighLightValuesShift,
 } from './data/patternBases.mjs';
-import { orderPatternDither, orderPatternNoDither } from './data/orderPatterns.mjs';
+import { orderPatternDither } from './data/orderPatterns.mjs';
 import sortPattern from './tools/sortPattern.mjs';
 
 import toPGM from './tools/toPGM.mjs';
@@ -23,8 +21,6 @@ import { toC } from './tools/toC.mjs';
 const patternBases = {
   ditherLowLightValues,
   ditherHighLightValues,
-  ditherNoLowLightValues,
-  ditherNoHighLightValues,
   inTheDarkLow,
   inTheDarkHigh,
   swoosh,
@@ -38,17 +34,13 @@ const patterns = Object.keys(patternBases)
     patternBases[patternGroupName].map((values) => {
       const baseValues = generateBaseValues(values);
 
-      const orderPattern = patternGroupName.indexOf('No') !== -1 ?
-        orderPatternNoDither :
-        orderPatternDither;
-
       return (
         generatePattern({
           baseValues,
           orderPatterns: [
-            orderPattern,
-            orderPattern,
-            orderPattern,
+            orderPatternDither,
+            orderPatternDither,
+            orderPatternDither,
           ],
         })
       );

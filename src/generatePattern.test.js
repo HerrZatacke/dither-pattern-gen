@@ -10,8 +10,6 @@ import {
 import {
   ditherLowLightValues,
   ditherHighLightValues,
-  ditherNoLowLightValues,
-  ditherNoHighLightValues,
 } from './data/patternBases.mjs';
 import { orderPatternDither, orderPatternNoDither } from './data/orderPatterns.mjs';
 
@@ -48,7 +46,7 @@ test('High Light Ditherpatterns match original values', () => {
 });
 
 test('Low Light Non-Ditherpatterns match original values', () => {
-  const result = ditherNoLowLightValues.map((values) => {
+  const result = ditherLowLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
@@ -64,7 +62,7 @@ test('Low Light Non-Ditherpatterns match original values', () => {
 });
 
 test('High Light Non-Ditherpatterns match original values', () => {
-  const result = ditherNoHighLightValues.map((values) => {
+  const result = ditherHighLightValues.map((values) => {
     const baseValues = generateBaseValues(values);
     return generatePattern({
       baseValues,
