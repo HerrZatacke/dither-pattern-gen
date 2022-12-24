@@ -23,7 +23,7 @@ function PatternPreview({
         ref={canvas}
         className="pattern-preview__canvas"
         width={1024 + 16}
-        height={(groupBaseValues.length * 4) + 16}
+        height={(groupBaseValues.length * 8) + 12}
       />
     </div>
   );

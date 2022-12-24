@@ -34,7 +34,7 @@ export const drawPattern = ({
     line.forEach((shade, color) => {
       shade.forEach((value) => {
         context.fillStyle = colors[color];
-        context.fillRect((value * 4) + 8, (y * 4) + 8, 3, 3);
+        context.fillRect((value * 4) + 8, (y * 8) + 8, 3, 3);
       });
     });
   });
@@ -47,8 +47,8 @@ export const drawPattern = ({
       boundaryValues.forEach((boundaryValue, y) => {
         if (y > 0) {
           context.beginPath();
-          context.moveTo((boundaryValues[y - 1] * 4) + 9, ((y - 1) * 4) + 9);
-          context.lineTo((boundaryValue * 4) + 9, (y * 4) + 9);
+          context.moveTo((boundaryValues[y - 1] * 4) + 9, ((y - 1) * 8) + 9);
+          context.lineTo((boundaryValue * 4) + 9, (y * 8) + 9);
           context.stroke();
         }
       });
