@@ -2,14 +2,9 @@ import fs from 'fs';
 import generatePattern from './generatePattern.mjs';
 import generateBaseValues from './generateBaseValues.mjs';
 import {
-  ditherLowLightValues,
   ditherHighLightValues,
-  inTheDarkLow,
-  inTheDarkHigh,
-  swoosh,
-  swooshTight,
-  ditherLowLightValuesShift,
-  ditherHighLightValuesShift,
+  ditherLowLightValues,
+  ditherUnused2BCA0,
 } from './data/patternBases.mjs';
 import { orderPatternDither } from './data/orderPatterns.mjs';
 import sortPattern from './tools/sortPattern.mjs';
@@ -19,14 +14,9 @@ import toJSONFile from './tools/toJSONFile.mjs';
 import { toC } from './tools/toC.mjs';
 
 const patternBases = {
-  ditherLowLightValues,
   ditherHighLightValues,
-  inTheDarkLow,
-  inTheDarkHigh,
-  swoosh,
-  swooshTight,
-  ditherLowLightValuesShift,
-  ditherHighLightValuesShift,
+  ditherLowLightValues,
+  ditherUnused2BCA0,
 }
 
 const patterns = Object.keys(patternBases)
