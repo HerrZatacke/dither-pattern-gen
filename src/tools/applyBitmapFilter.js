@@ -19,9 +19,8 @@ const ditherFilter = (imageData, pattern) => {
     const x = (pixelCount % width) % 4;
     const y = Math.ceil(pixelCount / width) % 4;
 
-    // let p = Math.ceil((pixels[i] + 255) / 2);
     let p = pixels[i];
-    const ditherGroup = pattern[x][y];
+    const ditherGroup = pattern[y][x];
 
     if (p < ditherGroup[0]) {
       p = black;
