@@ -5,7 +5,7 @@ import OrderValuesSet from '../OrderValuesSet';
 import CubicValues from '../CubicValues';
 import GroupCodePreview from '../GroupCodePreview';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
-import { flip } from '../../../../generatePatternBaseValues.mjs';
+import flip from '../../../../flip.mjs';
 import { orderPatternDither } from '../../../../data/orderPatterns.mjs';
 import { boundaryColors } from '../PatternPreview/drawPattern';
 import './index.scss';

@@ -1,4 +1,4 @@
-import { flip } from '../../../../generatePatternBaseValues.mjs';
+import flip from '../../../../flip.mjs';
 
 const colors = [
   '#666666',
