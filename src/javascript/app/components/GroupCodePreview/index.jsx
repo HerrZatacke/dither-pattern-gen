@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { patternToC } from '../../../../tools/toC.mjs';
+import { patternToJs } from '../../../../tools/toJs.mjs';
 import generatePattern from '../../../../generatePattern.mjs';
 import './index.scss';
 
@@ -17,15 +18,21 @@ function GroupCodePreview({
         orderPatterns,
         baseValues,
       })
-    ))
-    .map(patternToC);
+    ));
+  const cPatterns = patterns.map(patternToC);
+  const jsPatterns = patterns.map(patternToJs);
 
   return (
     <div className="group-code-preview">
       <pre
-        className="group-code-preview__c-pattern"
+        className="group-code-preview__pattern"
       >
-        { `{\n${patterns.join(', \n')}\n}` }
+        { `{\n${cPatterns.join(', \n')}\n}` }
+      </pre>
+      <pre
+        className="group-code-preview__pattern"
+      >
+        { `[\n${jsPatterns.join(', \n')}\n]` }
       </pre>
     </div>
   );

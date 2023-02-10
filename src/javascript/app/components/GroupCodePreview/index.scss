@@ -3,8 +3,10 @@
   padding: 10px 0;
   margin-bottom: 40px;
 
-  &__c-pattern {
+  &__pattern {
     font-family: monospace;
     width: $base-width;
+    display: block;
+    margin-bottom: 20px;
   }
 }

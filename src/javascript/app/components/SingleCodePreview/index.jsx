@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { patternToC } from '../../../../tools/toC.mjs';
+import { patternToJs } from '../../../../tools/toJs.mjs';
 import generatePattern from '../../../../generatePattern.mjs';
 import generateBaseValues from '../../../../generateBaseValues.mjs';
 import './index.scss';
@@ -20,9 +21,14 @@ function SingleCodePreview({
   return (
     <div className="single-code-preview">
       <code
-        className="single-code-preview__c-pattern"
+        className="single-code-preview__pattern"
       >
         { patternToC(patterns) }
+      </code>
+      <code
+        className="single-code-preview__pattern"
+      >
+        { patternToJs(patterns) }
       </code>
     </div>
   );

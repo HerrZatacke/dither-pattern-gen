@@ -1,6 +1,8 @@
 .single-code-preview {
-  &__c-pattern {
+  &__pattern {
     font-family: monospace;
     width: $base-width;
+    display: block;
+    margin-bottom: 20px;
   }
 }
